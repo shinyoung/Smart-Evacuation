@@ -1,0 +1,82 @@
+
+
+mysql> create database sds;
+Query OK, 1 row affected (0.01 sec)
+
+mysql> use sds;
+Database changed
+
+
+mysql> create table user(noid int not null auto_increment primary key, name varc
+har(10) not null, age varchar(10), gender varchar(5), defect varchar(5));
+Query OK, 0 rows affected (0.01 sec)
+
+mysql> desc user;
++--------+-------------+------+-----+---------+----------------+
+| Field  | Type        | Null | Key | Default | Extra          |
++--------+-------------+------+-----+---------+----------------+
+| noid   | int(11)     | NO   | PRI | NULL    | auto_increment |
+| name   | varchar(10) | NO   |     | NULL    |                |
+| age    | varchar(10) | YES  |     | NULL    |                |
+| gender | varchar(5)  | YES  |     | NULL    |                |
+| defect | varchar(5)  | YES  |     | NULL    |                |
++--------+-------------+------+-----+---------+----------------+
+5 rows in set (0.02 sec)
+
+mysql> select * from user;
+Empty set (0.00 sec)
+
+mysql> use sds;
+Database change
+
+mysql> select * from user;
++------+------+------+--------+--------+
+| noid | name | age  | gender | defect |
++------+------+------+--------+--------+
+|    1 | roll | 12   | f      | n      |
++------+------+------+--------+--------+
+1 row in set (0.00 sec)
+
+mysql> select * from user;
++------+-------+------+--------+--------+
+| noid | name  | age  | gender | defect |
++------+-------+------+--------+--------+
+|    1 | roll  | 12   | f      | n      |
+|    2 | tytyt | 54   | m      | d      |
++------+-------+------+--------+--------+
+2 rows in set (0.00 sec)
+
+mysql> select * from user;
++------+--------+------+--------+--------+
+| noid | name   | age  | gender | defect |
++------+--------+------+--------+--------+
+|    1 | roll   | 12   | f      | n      |
+|    2 | tytyt  | 54   | m      | d      |
+|    3 | vhvhvh | 76   | m      | d      |
++------+--------+------+--------+--------+
+3 rows in set (0.00 sec)
+
+mysql> select * from user;
++------+--------+------+--------+--------+
+| noid | name   | age  | gender | defect |
++------+--------+------+--------+--------+
+|    1 | roll   | 12   | f      | n      |
+|    2 | tytyt  | 54   | m      | d      |
+|    3 | vhvhvh | 76   | m      | d      |
+|    4 | ㅇ웅   | 89   | m      | d      |
++------+--------+------+--------+--------+
+4 rows in set (0.00 sec)
+
+mysql> select * from user;
++------+--------+------+--------+--------+
+| noid | name   | age  | gender | defect |
++------+--------+------+--------+--------+
+|    1 | roll   | 12   | f      | n      |
+|    2 | tytyt  | 54   | m      | d      |
+|    3 | vhvhvh | 76   | m      | d      |
+|    4 | ㅇ웅   | 89   | m      | d      |
+|    5 | kwc    | 22   | m      | n      |
++------+--------+------+--------+--------+
+5 rows in set (0.00 sec)
+
+mysql>
