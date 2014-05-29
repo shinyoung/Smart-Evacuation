@@ -1,7 +1,7 @@
 <?php
 echo "<html><meta charset = 'euc-kr'><head></head>";
 
-
+$name=$_POST["name"];
 
 $buildingName = $_POST['buildingName'];
 if($buildingName == ""){
@@ -35,7 +35,7 @@ else{
 while($row = mysql_fetch_array($result))
    {
     echo "<tr align =left>";
-   echo "<td><a target='_parent' href='./mapinfophp.php'>" .$row['Address']. "</a></td>";
+   echo "<td><a target='_parent' href='./mapinfophp.php?name=$name'>" .$row['Address']. "</a></td>";
    echo "</tr>";
       }
  
