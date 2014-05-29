@@ -1,52 +1,31 @@
-<!DOCTYPE html>
 <html>
-<head>
-<meta charset="EUC-KR">
-<title>SDS</title>
-</head>
 <body>
-<script>
- function checkNum(elem, msg) {
-  var exp = /^[0-9]+$/;
-  if (elem.value.match(exp)) {
-   return true;
-   } else {
-   alert(msg);
-   elem.focus();
-   return false;
-   }
-   }
- 
- function checkLength(elem, max) {
-   var s = elem.value;
-   if ( s.length <= max) {
-    return true;
-    } else {
-     alert("영문 12글자까지 입력 가능합니다");
-     elem.focus();
-     return false;
-     }
-     } 
-</script>
-<div align = "center">
-<hr color="green" width="300">
-  <h2>개 인 정 보 입 력</h2>
-  <hr color="green" width="300">
-  <form name=index method=post action="./index.php">
-    <table border="0">
-      <tr>
-        <td align="center">
-          닉 네 임 : <input type="text" name="name" id="name" onchange="checkLength(document.getElementById('name'), 12)"><br>
-          나     이 : <input type="text" name="age" id="age" onchange="checkNum(document.getElementById('age'), '숫자를 입력하세요!')"><br>
-          성     별 : <input type="radio" name="sex" value = "m">남자 <input type="radio" name="sex" value = "f">여자 <br>
-          장애여부 : <input type="radio" name="defect" value = "d">O <input type="radio" name="defect" value = "n">X<br>
-              
-          <input type="submit" value="Next">
-          <input type="reset" value="Cancel">
-        </td>
-      </tr>
-    </table>
+  <form name=index method=post action="./index.html">
+  <?php
+  $_POST["age"];
+  $connect = mysql_connect('localhost','smartev','asdf1234');
+  $db = mysql_select_db('smartev', $connect);
+  if(!$db)
+  {
+    error("No Database<br>");
+    exit;
+  }
+
+$name = $_POST[name];
+$query = "select * from PEOPLE where name='$name'";
+$result = mysql_query($query, $connect);
+if(mysql_num_rows($result) != 0){
+ echo "<script>alert(\"이름이 중복됩니다.\"); history.back(-1);</script>";
+}else {
+  $query = "insert into PEOPLE values(null,'".$_POST["name"]."', ".$_POST["age"].", '".$_POST["sex"]."', '".$_POST["defect"]."', null)";
+
+  $result = mysql_query($query, $connect);
+  if($result)  echo "<meta http-equiv='refresh' content='0;url=http://smartev.dothome.co.kr/WebContent/building.html?name=$name'>";
+  else echo "Input Failed<br>";
+  echo "<hr>";
+}
+  ?>
+  <input type=submit value="Back">
   </form>
-</div>
 </body>
 </html>
