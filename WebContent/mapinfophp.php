@@ -15,6 +15,10 @@
 <html>
  <head>
   <title>[ 도면 정보 ]</title>
+  <style>
+   img.q { cursor:help;}
+   button { cursor:pointer;}
+  </style>
  </head>
 
  <body>
@@ -35,7 +39,7 @@
 
 <table width="960" border="0" >
 <tr>
-  <th><font size=8>오늘 당신의 역할은 <img src="question.jpeg" width=50 height=50 onclick="role()"> 입니다. </font></th></tr>
+  <th><font size=8>오늘 당신의 역할은 <img src="question.jpeg" class="q"  width=50 height=50 onclick="role()"> 입니다. </font></th></tr>
 </table>
 
 <br>
